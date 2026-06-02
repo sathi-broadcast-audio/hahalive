@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ha Ha Live - অডিও বোর্ড</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="live-header">
+        <div class="logo-area">
+            <div class="live-indicator">🔴 LIVE</div>
+            <h1 id="room-title">লোডিং আড্ডা...</h1>
+        </div>
+        <button class="leave-btn" onclick="exitRoom()">রুম ছাড়ুন</button>
+    </div>
+
+    <div class="board-container">
+        <div class="seats-grid">
+            <div class="seat-card host-seat" id="seat-1">
+                <div class="avatar-wrapper">
+                    <img src="default_avatar.png" id="img-seat-1" class="seat-avatar">
+                    <div class="mic-status">🎙️</div>
+                    <div class="pulse-wave"></div>
+                </div>
+                <p class="seat-name" id="name-seat-1">খালি সিট</p>
+                <span class="role-badge">HOST</span>
+            </div>
+
+            <script>
+                for (let i = 2; i <= 9; i++) {
+                    document.write(`
+                        <div class="seat-card" id="seat-${i}" onclick="joinSeat(${i})">
+                            <div class="avatar-wrapper">
+                                <img src="default_avatar.png" id="img-seat-${i}" class="seat-avatar">
+                                <div class="mic-status mute">🔇</div>
+                                <div class="pulse-wave"></div>
+                            </div>
+                            <p class="seat-name" id="name-seat-${i}">খালি সিট</p>
+                        </div>
+                    `);
+                }
+            </script>
+        </div>
+    </div>
+
+    <div class="control-panel">
+        <button class="control-btn" id="mic-toggle" onclick="toggleMic()">🎙️ মাইক্রোফোন অন</button>
+        <button class="control-btn msg-btn" onclick="sendEmoji('😂')">😂</button>
+        <button class="control-btn msg-btn" onclick="sendEmoji('🎤')">🎤</button>
+        <button class="control-btn msg-btn" onclick="sendEmoji('❤️')">❤️</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+                      </html>
+                      
