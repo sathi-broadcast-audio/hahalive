@@ -1,0 +1,155 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(to bottom, #1a1a2e, #121212);
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* হেডার স্টাইল */
+.live-header {
+    background: rgba(30, 30, 30, 0.85);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    backdrop-filter: blur(10px);
+}
+.live-indicator {
+    background: #ff1744;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 5px;
+    animation: blink 1.5s infinite;
+}
+@keyframes blink { 50% { opacity: 0.5; } }
+#room-title { margin: 0; font-size: 18px; color: #ff9800; }
+
+.leave-btn {
+    background: #e74c3c;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* সিট গ্রিড লেআউট */
+.board-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.seats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 450px;
+    width: 100%;
+}
+
+/* একক সিট কার্ড */
+.seat-card {
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+.avatar-wrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+}
+.seat-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid #444;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+    background: #252525;
+}
+.host-seat .seat-avatar {
+    border-color: #ff9800;
+}
+
+/* অডিও সিগন্যালিং বা গ্লোয়িং পালস ইফেক্ট */
+.pulse-wave {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    border-radius: 50%;
+    background: rgba(255, 152, 0, 0.4);
+    z-index: 1;
+    display: none; /* কথা বলার সময় জাভাস্ক্রিপ্ট দিয়ে এটি 'block' করা হবে */
+    animation: ripple 1.2s infinite ease-out;
+}
+@keyframes ripple {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.4); opacity: 0; }
+}
+
+.mic-status {
+    position: absolute;
+    bottom: 0; right: 0;
+    background: #2ecc71;
+    border-radius: 50%;
+    width: 22px; height: 22px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    border: 2px solid #1a1a2e;
+}
+.mic-status.mute { background: #e74c3c; }
+
+.seat-name {
+    margin: 8px 0 0 0;
+    font-size: 12px;
+    color: #bbb;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.role-badge {
+    background: #ff9800;
+    color: #000;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 1px 5px;
+    border-radius: 5px;
+}
+
+/* বটম কন্ট্রোল বার */
+.control-panel {
+    background: #1e1e1e;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    border-top: 1px solid #333;
+}
+.control-btn {
+    background: linear-gradient(45deg, #ff9800, #ff5722);
+    border: none; color: #fff;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold; cursor: pointer;
+}
+.msg-btn {
+    background: #2d2d2d;
+    padding: 12px 15px;
+    font-size: 18px;
+  }
+  
